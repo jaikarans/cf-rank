@@ -1,0 +1,29 @@
+{
+  "name": "cf-rank",
+  "version": "1.0.0",
+  "description": "find your rank in your university on basis of Codeforces.com's Rating",
+  "main": "index.js",
+  "repository": "https://github.com/jaikarans/cf-rank",
+  "author": "jaikaran saini <jaikrns@gmail.com>",
+  "license": "gpl-3.0",
+  "scripts": {
+    "dev": "NODE_ENV=development nodemon index.js",
+    "prod": "set NODE_ENV=production && node index.js",
+		"lint": "eslint --init"
+  },
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "mongoose": "^6.0.8",
+    "path": "^0.12.7"
+  },
+  "devDependencies": {
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-config-standard": "^16.0.3",
+    "eslint-plugin-import": "^2.24.2",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^5.1.0",
+    "nodemon": "^2.0.13"
+  }
+}
