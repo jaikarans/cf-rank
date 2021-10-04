@@ -1,13 +1,16 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const env = require('./config/env');
+const path = require('path');
+require('dotenv').config({
+  path: path.resolve(__dirname, `./${process.env.NODE_ENV}.env`),
+});
 
 const app = express();
 
 app.use(express.json());
 
 mongoose.connect(
-  `mongodb+srv://${env.MONGO_USER_NAME}:${env.MONGO_PASSWORD}@${env.MONGO_CLUSTER_NAME}.mongodb.net/${env.DATABASE}?retryWrites=true&w=majority`,
+  `mongodb+srv://${process.env.MONGO_USER_NAME}:${process.env.MONGO_PASSWORD}@${process.env.MONGO_CLUSTER_NAME}.mongodb.net/${process.env.DATABASE}?retryWrites=true&w=majority`,
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
@@ -20,6 +23,6 @@ db.once('open', () => {
   console.log('Connected successfully');
 });
 
-app.listen(env.PORT, () => {
-  console.log(`Server is running at port ${env.PORT}`);
+app.listen(process.env.PORT, () => {
+  console.log(`Server is running at port ${process.env.PORT}`);
 });
